@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  
+</head>
+<body>
+<div id="bump_chart" class="vis-container"></div>
+<br>
+<div id="stacked_bar_chart" class="vis-container"></div>
+<br>
+<div id="mult_line_chart" class="vis-container"></div>
+<br>
+<div id="main_choropleth_map" class="vis-container"></div>
+<br>
+<div id="factors_choropleth_map" class="vis-container"></div>
+<br>
+<div id="dot_map" class="vis-container"></div>
+
+<script type="text/javascript">
+
+  var stacked_bar_chart = "js/stacked_bar_chart.vg.json";
+  vegaEmbed('#stacked_bar_chart', stacked_bar_chart).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  var bump_chart = "js/bump_chart.vg.json";
+  vegaEmbed('#bump_chart', bump_chart).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  var mult_line_chart = "js/mult_line_chart.vg.json";
+  vegaEmbed('#mult_line_chart', mult_line_chart).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+    
+  var main_choropleth_map = "js/main_choropleth_map.vg.json";
+  vegaEmbed('#main_choropleth_map', main_choropleth_map).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);    
+
+  var factors_choropleth_map = "js/factors_choropleth_map.vg.json";
+  vegaEmbed('#factors_choropleth_map', factors_choropleth_map).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  var dot_map = "js/dot_map.vg.json";
+  vegaEmbed('#dot_map', dot_map).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+</script>
+
+</body>
+</html>

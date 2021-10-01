@@ -1,0 +1,87 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Line chart",
+    "data": {"url": "data/Melbourne_housing_FULL.csv"},
+    "width": "container",
+    "params": [
+        {
+            "name": "year_selection",
+            "bind" : {
+                "input": "select",
+                "options": [
+                    null,
+                    "2016",
+                    "2017",
+                    "2018"
+                ],
+                "labels": [
+                  "Total",
+                  "2016",
+                  "2017",
+                  "2018"
+                ],
+                "name": "Year: "
+            }
+        }  
+    ],
+    "layer": [
+        {
+            "mark": {
+                "type": "line",
+                "point": true
+            },
+            "encoding": {
+              "x": {
+                  "field": "MonthStr", 
+                  "type": "ordinal",
+                  "sort": ["January", "February", "March","April","May", "June", "July","August","September","October", "November","December"]
+                },
+              "y": {"field": "count", "type": "quantitative"},
+              "color": {
+                  "field": "Year",
+                  "type": "nominal"
+              }
+            },
+            "transform": [
+                {
+                    "aggregate": [{
+                        "op": "count",
+                        "as": "count"
+                        }],
+                        "groupby": ["MonthStr", "Year"]
+                },
+                {
+                    "filter": "year_selection == null || datum.Year == year_selection"
+                }
+            ]
+        },
+        {
+            "mark": {
+                "type": "line",
+                "point": true
+            },
+            "encoding": {
+                "x": {
+                    "field": "MonthStr", 
+                    "type": "ordinal",
+                    "sort": ["January", "February", "March","April","May", "June", "July","August","September","October", "November","December"]
+                  },
+                "y": {"field": "count", "type": "quantitative"}
+            },
+            "transform": [
+                {
+                    "filter": "year_selection == null"
+                },
+                {
+                    "aggregate": [{
+                        "op": "count",
+                        "as": "count"
+                        }],
+                        "groupby": ["MonthStr"]
+                }
+            ]
+        }
+    ]
+  }
+
+  

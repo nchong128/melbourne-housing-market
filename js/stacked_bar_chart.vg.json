@@ -1,0 +1,26 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "data/Melbourne_housing_FULL.csv"
+    },
+    "width":"container",
+    "transform": [
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Date",
+        "timeUnit": "year",
+        "type": "nominal"
+      },
+      "y": {
+        "aggregate": "count",
+        "stack": "normalize"
+      },
+      "color": {
+        "type": "nominal",
+        "field": "Method",
+        "title": "Weather Type"        
+      }
+    }
+  }

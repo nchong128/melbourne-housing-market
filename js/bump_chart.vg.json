@@ -1,0 +1,30 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Bump chart: ranking of top 10 suburbs in terms of number of popularity across 3 different years",
+    "data": {
+        "url": "data/countsBySuburb.csv"
+    },
+    "width":"container",
+    "transform": [],
+    "layer": [
+      {
+      "mark": {"type": "line", "point": true, "size": 3 },
+      "encoding": {
+        "x": {
+          "field": "Year", 
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "Rank",
+          "title":"Ranking",
+          "type": "ordinal", 
+          "sort": [10,9,8,7,6,5,4,3,2,1]
+        },
+        "color": {
+          "field": "Suburb",
+          "type":"nominal"
+        }
+      }
+    }
+    ]
+  }
