@@ -1,0 +1,124 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Play the Agent",
+    "width": 800,
+    "height": 600,
+    "projection": {
+      "type": "mercator"
+    },
+    "params": [
+        {
+          "name": "suburb_selection",
+          "bind": {
+            "name": "Suburb: ",
+            "input": "text"
+          }
+        },
+        {
+          "name": "address_selection",
+          "bind": {
+            "name": "Address: ",
+            "input": "text"
+          }
+        },
+        {
+          "name": "type_selection",
+          "bind": {
+            "name": "House type: ",
+            "input": "radio",
+            "options": [
+              "House",
+              "Unit",
+              "Townhouse"
+            ]
+          }
+        },
+        {
+          "name": "price_selection",
+          "bind": {
+            "name": "Minimum price: ",
+            "input": "range",
+            "max": 11200000,
+            "min": 80000,
+            "step": 10000
+          }
+        },
+        {
+          "name": "rooms_selection",
+          "bind": {
+            "name": "Minimum number of rooms: ",
+            "input": "range",
+            "max": 12,
+            "min": 1,
+            "step": 1
+          }
+        },
+        {
+          "name": "bathroom_selection",
+          "bind": {
+            "name": "Minimum bathrooms: ",
+            "input": "range",
+            "max": 9,
+            "min": 0,
+            "step": 1
+          }
+        },
+        {
+          "name": "car_selection",
+          "bind": {
+            "name": "Minimum car spots: ",
+            "input": "range",
+            "max": 18,
+            "min": 0,
+            "step": 1
+          }
+        },
+        {
+          "name": "landsize_selection",
+          "bind": {
+            "name": "Minimum land size: ",
+            "input": "range",
+            "max": 440000,
+            "min": 0,
+            "step": 10000
+          }
+        }
+    ],
+    "layer": [
+      {
+        "data": {
+          "url": "data/inner_vic_localities.topojson",
+          "format": {
+                "type": "topojson",
+                "feature": "vic_localities"
+              }
+          },
+        "mark": {
+          "type": "geoshape",
+          "fill": "lightgray",
+          "stroke": "white"
+        }
+      },
+      {
+        "data": {
+          "url": "data/dotmapHousing.csv"
+        },
+        "transform": [
+          {
+            "filter": "datum.Rooms >= rooms_selection"
+          }
+        ],
+        "mark": {
+          "type": "circle",
+          "tooltip": {
+            "content": "data"
+          }
+        },
+        "encoding": {
+          "longitude": { "field": "Longtitude", "type": "quantitative" },
+          "latitude": { "field": "Lattitude", "type": "quantitative" }
+        }
+      }
+    ]
+  }
+  

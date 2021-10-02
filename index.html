@@ -11,6 +11,11 @@
   
 </head>
 <body>
+
+  <div class="bg-green-300 border-green-600 border-b p-4 m-4 rounded">
+    Hello World
+  </div>
+  <div class="text-xl font-medium text-black">Melbourne Markets</div>
 <div id="bump_chart" class="vis-container"></div>
 <br>
 <div id="stacked_bar_chart" class="vis-container"></div>
@@ -18,8 +23,8 @@
 <div id="mult_line_chart" class="vis-container"></div>
 <br>
 <div id="main_choropleth_map" class="vis-container"></div>
-<br>
-<div id="factors_choropleth_map" class="vis-container"></div>
+<!-- <br>
+<div id="factors_choropleth_map" class="vis-container"></div> -->
 <br>
 <div id="dot_map" class="vis-container"></div>
 
@@ -45,10 +50,10 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);    
 
-  var factors_choropleth_map = "js/factors_choropleth_map.vg.json";
-  vegaEmbed('#factors_choropleth_map', factors_choropleth_map).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
+  // var factors_choropleth_map = "js/factors_choropleth_map.vg.json";
+  // vegaEmbed('#factors_choropleth_map', factors_choropleth_map).then(function(result) {
+  //   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  // }).catch(console.error);
   
   var dot_map = "js/dot_map.vg.json";
   vegaEmbed('#dot_map', dot_map).then(function(result) {

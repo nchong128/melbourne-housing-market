@@ -1,0 +1,28 @@
+{
+  "name": "fit3179-a2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "postcss css/styles.css -o public/build/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nchong128/melbourne-housing-market.git"
+  },
+  "author": "Nick Chong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nchong128/melbourne-housing-market/issues"
+  },
+  "homepage": "https://github.com/nchong128/melbourne-housing-market#readme",
+  "dependencies": {
+    "postcss-cli": "^9.0.1",
+    "postcss-import": "^14.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.6",
+    "postcss": "^8.3.8",
+    "tailwindcss": "^2.2.16"
+  }
+}
