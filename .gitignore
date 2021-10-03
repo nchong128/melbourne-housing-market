@@ -179,6 +179,24 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+
+node_modules
+bower_components
+
+*.sublime*
+
+psd
+thumb
+sketch
+
+# End of https://www.toptal.com/developers/gitignore/api/react
+
+
 # yarn v2
 .yarn/cache
 .yarn/unplugged
