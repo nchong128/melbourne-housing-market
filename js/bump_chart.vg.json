@@ -6,6 +6,8 @@
     },
     "width":"container",
     "transform": [],
+    "params": [
+    ],
     "layer": [
       {
       "mark": {"type": "line", "point": true, "size": 3 },

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "postcss css/styles.css -o public/build/styles.css"
+    "build": ""
   },
   "repository": {
     "type": "git",
@@ -15,14 +15,5 @@
   "bugs": {
     "url": "https://github.com/nchong128/melbourne-housing-market/issues"
   },
-  "homepage": "https://github.com/nchong128/melbourne-housing-market#readme",
-  "dependencies": {
-    "postcss-cli": "^9.0.1",
-    "postcss-import": "^14.0.2"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.3.6",
-    "postcss": "^8.3.8",
-    "tailwindcss": "^2.2.16"
-  }
+  "homepage": "https://github.com/nchong128/melbourne-housing-market#readme"
 }

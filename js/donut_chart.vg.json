@@ -1,0 +1,69 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A simple donut chart with embedded data.",
+    "data": {
+        "url": "data/sellingMethodDist.csv"
+    },
+    "params":[
+      {
+        "name": "method_highlight",
+        "select": {"type": "point", "on": "mouseover"}
+      },
+      {"name": "method_select", "select": "point"}
+    ],
+    "layer": [
+      {
+        "params": [
+          {"name": "method_select", "select": "point"}
+        ],
+        "mark": {
+          "type": "arc", 
+          "innerRadius": 50,
+          "stroke": "black",
+          "cursor": "pointer"
+        },
+        "encoding": {
+          "theta": {"field": "Count", "type": "quantitative"},
+          "color": {
+            "field": "Name",
+             "type": "nominal", 
+             "title": "Selling Methods",
+             "legend": {
+               "labelFont": ""
+             }
+            },
+          "strokeWidth": {
+            "condition": [
+              {
+                "param": "method_select",
+                "empty": false,
+                "value": 2
+              },
+              {
+                "param": "method_highlight",
+                "empty": false,
+                "value": 1
+              }
+            ]
+          },
+          "opacity": {
+            "condition": [
+              {
+                "param": "method_select",
+                "empty": false,
+                "value": 1
+              }
+            ],
+            "value": 0.3
+          },
+          "tooltip": [
+            {"field": "Name", "type": "nominal", "title": "Method type"},
+            {"field": "Count", "type": "quantitative", "format": ","},
+            {"field": "ratio_of_total", "type":"quantitative", "format": ".1%", "title": "% of total"}
+          ]
+        }
+      }
+    ]
+  }
+  
+  
