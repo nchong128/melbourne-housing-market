@@ -71,7 +71,8 @@
         },        
         "tooltip": [
           {"field": "Suburb", "type": "nominal"},
-          {"field": "Rank", "type": "ordinal"},
+          {"field": "Postcode", "type": "ordinal"},
+          {"field": "Rank", "type": "ordinal", "title": "Ranking"},
           {"field": "Year", "type": "ordinal"}
         ]
       }

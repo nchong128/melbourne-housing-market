@@ -1,5 +1,5 @@
 ,Method,Count,ratio_of_total,Description,Name
-0,PI,4850,0.13914789843637929,"Property passed in - occurs when the top bid is below the reserve price,\nmeaning the property doesnt sell through an auction process. From there, the highest bidder can negotiate with the seller. ",Property passed in
+0,PI,4850,0.13914789843637929,"['Property passed in - occurs when the top bid is below the reserve price', 'meaning the property doesnt sell through an auction process.', ' From there, the highest bidder can negotiate with the seller. ']",Property passed in
 1,PN,308,0.00883660880791852,,Sold prior not disclosed
 2,S,19743,0.5664323626452445,,Property sold
 3,SA,226,0.0064840051642519,,Sold after auction
