@@ -5,16 +5,36 @@
         "url": "data/countsBySuburb.csv"
     },
     "width":"container",
-    "transform": [],
-    "params": [
-    ],
     "layer": [
       {
-      "mark": {"type": "line", "point": true, "size": 3 },
+      "mark": {
+        "type": "line",
+         "point": true,
+          "cursor": "pointer"
+        },
+      "params": [
+        {
+        "name": "suburb_hover",
+        "select": {
+          "type": "point",
+          "on": "mouseover"
+          }
+        },
+        {
+          "name": "suburb_select", 
+          "select": {
+            "type": "point",
+            "fields": ["Suburb"]
+          }
+        }
+      ],
       "encoding": {
         "x": {
           "field": "Year", 
-          "type": "ordinal"
+          "type": "ordinal",
+          "axis": {
+            "labelAngle": 0
+          }
         },
         "y": {
           "field": "Rank",
@@ -23,9 +43,76 @@
           "sort": [10,9,8,7,6,5,4,3,2,1]
         },
         "color": {
-          "field": "Suburb",
-          "type":"nominal"
-        }
+          "condition": {
+            "param": "suburb_select",
+            "field":"Suburb",
+            "type":"nominal"
+          },
+          "value": "grey"
+        },
+        "opacity": {
+          "condition": [
+            {
+              "param": "suburb_select",
+              "value": 1
+            }
+          ],
+          "value": 0.3
+        },
+        "strokeWidth": {
+          "condition": [
+            {
+              "param": "suburb_hover",
+              "value": 5,
+              "empty": false
+            }
+          ],
+          "value": 3.5
+        },        
+        "tooltip": [
+          {"field": "Suburb", "type": "nominal"},
+          {"field": "Rank", "type": "ordinal"},
+          {"field": "Year", "type": "ordinal"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 3
+      },
+      "encoding": {
+        "opacity": {
+          "condition": [
+            {
+              "param": "suburb_select",
+              "value": 1,
+              "empty": false
+            },
+            {
+              "param": "suburb_hover",
+              "value": 1,
+              "empty": false
+            }
+          ],
+          "value": 0
+        },
+        "x": {
+          "field": "Year", 
+          "type": "ordinal",
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "Rank",
+          "title":"Ranking",
+          "type": "ordinal", 
+          "sort": [10,9,8,7,6,5,4,3,2,1]
+        },
+        "text": {"field": "Suburb", "type": "nominal"}
       }
     }
     ]

@@ -13,9 +13,6 @@
     ],
     "layer": [
       {
-        "params": [
-          {"name": "method_select", "select": "point"}
-        ],
         "mark": {
           "type": "arc", 
           "innerRadius": 50,
