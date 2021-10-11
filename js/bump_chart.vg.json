@@ -49,13 +49,20 @@
         "tooltip": [
           {"field": "Suburb", "type": "nominal"},
           {"field": "Postcode", "type": "ordinal"},
-          {"field": "Rank", "type": "ordinal", "title": "Ranking"},
-          {"field": "Year", "type": "ordinal"}
+          {"field": "Year", "type": "ordinal"},
+          {"field": "Count", "type": "quantitative", "title": "Properties sold"},
+          {"field": "Rank", "type": "ordinal", "title": "Ranking"}
         ]
       }
     },
     {
-      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 6, "dy": 6},
+      "mark": {
+        "type": "text", 
+        "align": "left", 
+        "baseline": "middle", 
+        "dx": 6, 
+        "dy": 6
+      },
       "encoding": {
         "opacity": {
           "condition": [
@@ -105,7 +112,44 @@
           "sort": [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
         },
         "text": {
-          "value": "Reservoir remains the consistent #1 "
+          "value": "Reservoir remained as the popular suburb across all three years!"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text", 
+        "align": "center", 
+        "baseline": "middle",
+        "dy": 10,
+        "dx": 100
+        },
+      "encoding": {
+        "opacity": {
+          "condition": [
+            {
+              "test": "datum['Suburb']=='Mount Waverley'&&datum['Year']==2017",
+              "value": 1
+            }
+          ],
+          "value": 0
+        },
+        "x": {
+          "field": "Year", 
+          "type": "ordinal", 
+          "axis": {
+            "labelAngle": 0,
+            "labelOffset": 0
+          }
+        },
+        "y": {
+          "field": "Rank",
+          "title": "Ranking",
+          "type": "ordinal",
+          "sort": [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+        },
+        "text": {
+          "value": "6 suburbs rose to the top 10 from 2017"
         }
       }
     }

@@ -20,13 +20,13 @@
 
 <div id="bump_chart" class="vis-container"></div>
 <br>
+<div id="bar_chart" class="vis-container"></div>
+<br>
 <div id="donut_chart" class="vis-container"></div>
 <br>
 <div id="mult_line_chart" class="vis-container"></div>
 <br>
 <div id="main_choropleth_map" class="vis-container"></div>
-<!-- <br>
-<div id="factors_choropleth_map" class="vis-container"></div> -->
 <br>
 <div id="dot_map" class="vis-container"></div>
 
@@ -37,6 +37,11 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
+  var bar_chart = "js/bar_chart.vg.json";
+  vegaEmbed('#bar_chart', bar_chart).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
   var donut_chart = "js/donut_chart.vg.json";
   vegaEmbed('#donut_chart', donut_chart).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -51,11 +56,6 @@
   vegaEmbed('#main_choropleth_map', main_choropleth_map).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);    
-
-  // var factors_choropleth_map = "js/factors_choropleth_map.vg.json";
-  // vegaEmbed('#factors_choropleth_map', factors_choropleth_map).then(function(result) {
-  //   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  // }).catch(console.error);
   
   var dot_map = "js/dot_map.vg.json";
   vegaEmbed('#dot_map', dot_map).then(function(result) {
