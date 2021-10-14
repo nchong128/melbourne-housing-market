@@ -1,11 +1,20 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Average house prices of Melbourne suburbs",
-    "width": 800,
+    "width": 650,
     "height": 600,
     "projection": {
-      "type": "mercator"
+      "type": "mercator",
+      "center": [145, -37.95]
     },
+    "params": [
+      {
+        "name": "suburb_selection",
+        "bind": {
+          "element": "#suburb_input",
+          "debounce": 0
+        }
+      }
+    ],
     "layer": [
       {
         "data": {
@@ -31,23 +40,26 @@
         },
         "transform": [
           {
-          "lookup": "properties.LOC_NAME",
-          "from": {
-            "data": {
-              "url": "data/meanSuburbValues.csv"
-            },
-            "key": "Suburb",
-            "fields": ["Propertycount", "Postcode", "Price","Suburb", "Rooms", "Landsize"]
+            "lookup": "properties.LOC_NAME",
+            "from": {
+              "data": {
+                "url": "data/meanSuburbValues.csv"
+              },
+              "key": "Suburb",
+              "fields": ["Propertycount", "Postcode", "Price","Suburb", "Rooms", "Landsize"]
+            }
+          },
+          {
+            "filter": "datum.Price>0"
+          },
+          {
+            "calculate": "datum.Rooms/datum.Landsize",
+            "as": "Rooms per property size"
+          },
+          {
+            "filter": "suburb_selection == '' || datum.Suburb == suburb_selection"
           }
-        },
-        {
-          "filter": "datum.Price>0"
-        },
-        {
-          "calculate": "datum.Rooms/datum.Landsize",
-          "as": "Rooms per property size"
-        }
-      ],
+        ],
         "mark": {
           "type": "geoshape"
         },
@@ -56,17 +68,54 @@
             "field": "Price",
             "type": "quantitative",
             "scale": {
-              "type":"threshold",
-              "domain":[500000, 750000, 1000000, 2000000],
-              "range":["#f1eef6", "#bdc9e1","#74a9cf","#2b8cbe", "#045a8d"]
+              "scheme": "inferno", "reverse": true
             }
           },
           "tooltip": [
             {"field": "properties.LOC_NAME", "type": "nominal", "title": "Suburb"},
             {"field": "Postcode", "type": "nominal", "title": "Post code"},
-            {"field": "Price", "type": "quantitative", "title": "Average property price"},
-            {"field": "Propertycount", "type": "quantitative", "title": "Property count"}
+            {"field": "Price", "type": "quantitative", "title": "Average property price", "format": "$,.0f" },
+            {"field": "Propertycount", "type": "quantitative", "title": "Number of properties"}
           ]
+        }
+      },
+      {
+        "data": {
+          "url": "data/inner_vic_localities.topojson",
+          "format": {
+            "type": "topojson",
+            "feature": "vic_localities"
+          }
+        },
+        "transform": [
+          {
+            "lookup": "properties.LOC_NAME",
+            "from": {
+              "data": {
+                "url": "data/meanSuburbValues.csv"
+              },
+              "key": "Suburb",
+              "fields": ["Propertycount", "Postcode", "Price","Suburb", "Rooms", "Landsize"]
+            }
+          },
+          {
+            "filter": "datum.Price>0"
+          },
+          {
+            "calculate": "datum.Rooms/datum.Landsize",
+            "as": "Rooms per property size"
+          }
+        ],
+        "mark": {
+          "type": "text"
+        },
+        "encoding": {
+          "text": {
+            "value": "6 suburbs rose to the top 10 from 2017"
+          },
+          "longitude": {
+            "field": "Longitude"
+          }
         }
       }
     ]
