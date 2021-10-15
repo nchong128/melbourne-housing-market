@@ -78,45 +78,6 @@
             {"field": "Propertycount", "type": "quantitative", "title": "Number of properties"}
           ]
         }
-      },
-      {
-        "data": {
-          "url": "data/inner_vic_localities.topojson",
-          "format": {
-            "type": "topojson",
-            "feature": "vic_localities"
-          }
-        },
-        "transform": [
-          {
-            "lookup": "properties.LOC_NAME",
-            "from": {
-              "data": {
-                "url": "data/meanSuburbValues.csv"
-              },
-              "key": "Suburb",
-              "fields": ["Propertycount", "Postcode", "Price","Suburb", "Rooms", "Landsize"]
-            }
-          },
-          {
-            "filter": "datum.Price>0"
-          },
-          {
-            "calculate": "datum.Rooms/datum.Landsize",
-            "as": "Rooms per property size"
-          }
-        ],
-        "mark": {
-          "type": "text"
-        },
-        "encoding": {
-          "text": {
-            "value": "6 suburbs rose to the top 10 from 2017"
-          },
-          "longitude": {
-            "field": "Longitude"
-          }
-        }
       }
     ]
   }
