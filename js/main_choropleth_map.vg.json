@@ -46,7 +46,7 @@
                 "url": "data/meanSuburbValues.csv"
               },
               "key": "Suburb",
-              "fields": ["Propertycount", "Postcode", "Price","Suburb", "Rooms", "Landsize"]
+              "fields": ["Propertycount", "Postcode", "Price","Suburb", "Rooms", "Landsize", "Distance"]
             }
           },
           {
@@ -75,7 +75,8 @@
             {"field": "properties.LOC_NAME", "type": "nominal", "title": "Suburb"},
             {"field": "Postcode", "type": "nominal", "title": "Post code"},
             {"field": "Price", "type": "quantitative", "title": "Average property price", "format": "$,.0f" },
-            {"field": "Propertycount", "type": "quantitative", "title": "Number of properties"}
+            {"field": "Distance", "type": "quantitative", "title": "Average distance from CBD (km)" },
+            {"field": "Propertycount", "type": "quantitative", "title": "Total number of properties"}
           ]
         }
       }

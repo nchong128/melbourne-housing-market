@@ -20,70 +20,81 @@
 </head>
 <body class="body-bg">
   <div class="container bg-white w-75 border px-0">
-    <div class="row jumbotron mb-5 mx-0 p-5 text-white rounded bg-dark">
+    <!-- Heading -->
+    <div class="row jumbotron mx-0 p-5 text-white bg-dark">
       <div class="col px-0">
-        <h1 class="display-6 font-italic">Looking for a Home?</h1>
-        <p class="lead my-3">Explore and learn interesting insights about the Melbourne housing market (2016-2018)</p>
+        <h1 class="display-6" style="font-weight: 500;">Looking for a Home?</h1>
+        <p class="lead my-3" style="font-weight: 100;">Explore and learn interesting insights about the Melbourne housing market (2016-2018)</p>
       </div>
     </div>
 
-    <div class="row mx-auto text-center justify-content-center align-items-center light-section">
-      <h2>Living Lavish</h2>
-      <input style="width: 30%" class="form-control" type="text" autocomplete="off" placeholder="Enter suburb" id="suburb_input">
+    <!-- Choropleth map -->
+    <div class="row px-4 py-4 mx-auto text-center justify-content-center align-items-center light-section">
+      <div>
+        <h2>Living Lavish</h2>
+        <div class="border mx-auto w-50 border-danger"></div>
+      </div>
+      <input style="width: 30%" class="mt-4 d-block form-control" type="text" autocomplete="off" placeholder="Enter suburb" id="suburb_input">
       <div id="main_choropleth_map" class="vis-container"></div>
     </div>
 
-    <div class="row mx-auto text-center justify-content-center align-items-center mt-3 dark-section">
-      <h2>New Kids on the Block</h2>
+    <!-- Bump chart -->
+    <div class="row px-4 py-4 mx-auto text-center justify-content-center align-items-center mt-3 dark-section">
+      <div>
+        <h2>New Kids on the Block</h2>
+        <div class="border mx-auto w-50 border-danger"></div>
+      </div>
       <div id="bump_chart" class="vis-container"></div>
     </div>
 
-    <div class="row mx-auto text-center justify-content-center align-items-center light-section">
-      <h2>Going once... going twice...</h2>
+    <!-- Donut chart -->
+    <div class="row px-4 py-4 mx-auto text-center justify-content-center align-items-center light-section">
+      <div>
+        <h2>Going once... going twice...</h2>
+        <div class="border mx-auto w-50 border-danger"></div>
+      </div>
       <div id="donut_chart" class="vis-container"></div>
     </div>
 
-    <!-- <div class="row mx-auto text-center justify-content-center align-items-center">
+    <!-- <div class="row px-4 py-3 mx-auto text-center justify-content-center align-items-center">
       <h2>SOLD!</h2>
       <div id="mult_line_chart" class="vis-container"></div>
     </div> -->
 
-    <div class="row mx-auto text-center justify-content-center align-items-center dark-section">
-      <h2 class="col-12">Playing the Agent</h2>
-      <div class="control_panel col-2">
+    <!-- Interactive dot map -->
+    <div class="row px-4 py-4 mx-auto text-center justify-content-center align-items-center dark-section">
+      <div>
+        <h2>Playing the Agent</h2>
+        <div class="border mx-auto w-50 border-danger"></div>
+      </div>
+      <div class="control_panel col-2 text-start">
         <div>
           <label for="dm_suburb_input" class="form-label">Suburb:</label>
           <input type="text" class="form-control" autocomplete="off" placeholder="Enter suburb" id="dm_suburb_input">
           <label for="dm_address_input" class="form-label">Address:</label>
           <input type="text" class="form-control" autocomplete="off" placeholder="Enter address" id="dm_address_input">
         </div>
-        <br>
         <div>
           <label for="min_price" class="form-label">Min price:</label>
           <input type="text" autocomplete="off" class="form-control" placeholder="Enter price" id="min_price" value="0">
           <label for="max_price" class="form-label">Max price:</label>
           <input type="text" autocomplete="off" class="form-control" placeholder="Enter price" id="max_price" value="5000000">
         </div>
-        <br>
         <div>
-          <label for="min_rooms" class="form-label">Min rooms:</label>
-          <input autocomplete="off" class="form-range" type="range" id="min_rooms" min="0" max="8" step="1" value="3" oninput="this.nextElementSibling.value = this.value">
-          <output>3</output>
+          <label for="min_rooms" class="form-label">Min rooms: <output id="min_rooms_span">3</output></label>
+          <input autocomplete="off" class="col-10 form-range" type="range" id="min_rooms" min="0" max="8" step="1" value="3" oninput="document.getElementById('min_rooms_span').value=this.value">
         </div>
         <div>
-          <label for="min_bathrooms" class="form-label">Min bathrooms:</label>
-          <input autocomplete="off" class="form-range" type="range" id="min_bathrooms" min="0" max="6" step="1" value="2" oninput="this.nextElementSibling.value = this.value">
-          <output>2</output>
+          <label for="min_bathrooms" class="form-label">Min bathrooms: <output id="min_bathrooms_span">2</output></label>
+          <input autocomplete="off" class="form-range" type="range" id="min_bathrooms" min="0" max="6" step="1" value="2" oninput="document.getElementById('min_bathrooms_span').value=this.value">
         </div>
         <div>
-          <label for="min_carspots" class="form-label">Min car spots:</label>
-          <input autocomplete="off" class="form-range" type="range" id="min_carspots" min="0" max="10" step="1" value="1" oninput="this.nextElementSibling.value = this.value">
-          <output>1</output>
+          <label for="min_carspots" class="form-label">Min car spots: <output id="min_cars_span">1</output></label>
+          <input autocomplete="off" class="form-range" type="range" id="min_carspots" min="0" max="10" step="1" value="1" oninput="document.getElementById('min_cars_span').value=this.value">
         </div>
         <div>
-          <label for="min_landsize" class="form-label">Min landsize:</label>
-          <input autocomplete="off" class="form-range" type="range" id="min_landsize" min="0" max="2000" step="100" value="100" oninput="this.nextElementSibling.value = this.value">
-          <output>100</output>
+          <label for="min_landsize" class="form-label">Min landsize: <output id="min_landsize_span">100</output></label>
+          <input autocomplete="off" class="form-range" type="range" id="min_landsize" min="0" max="2000" step="100" value="100" oninput="document.getElementById('min_landsize_span').value=this.value">
         </div>
       </div>
       <div id="dot_map" class="col-10 vis-container"></div>
