@@ -1,13 +1,18 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A simple donut chart with embedded data.",
-  "data": {"url": "data/sellingMethodDist.csv"},
+  "resolve": {
+    "legend": {
+      "color": "independent"
+    }
+  },
   "hconcat": [
     {
       "layer": [
         {
+          "data": {"url": "data/sellingMethodDist.csv"},
           "width": "container",
-          "height": 300,
+          "height": 270,
           "params": [
             {
               "name": "method_select",
@@ -26,10 +31,23 @@
             "color": {
               "field": "Name",
               "type": "nominal",
-              "title": "Selling Methods",
+              "title": "Selling Method",
               "legend": {
                 "orient": "bottom",
-                "direction": "vertical"
+                "direction": "vertical",
+                "values": [
+                  "Property passed in", 
+                  "Property sold",
+                  "Sold after auction",
+                  "Sold not disclosed",
+                  "Property sold prior",
+                  "Sold after auction, price not disclosed",
+                  "Vendor bid",
+                  "Withdrawn prior to auction"
+                  ]
+              },
+              "scale": {
+                "scheme": "category20"
               }
             },
             "strokeWidth": {
@@ -53,15 +71,157 @@
           }
         },
         {
+          "data": {"url": "data/sellingMethodDist.csv"},
           "mark": {
             "type": "text",
             "align": "center", 
             "baseline": "middle",
-            "fontSize": 15
+            "fontSize": 14
           },
           "encoding": {
             "text": {
-              "value": "Selling Methods"
+              "value": "Selling by method"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "layer": [
+        {
+          "data": {"url": "data/HouseTypeDist.csv"},
+          "width": "container",
+          "height": 270,
+          "params": [
+            {
+              "name": "type_select",
+              "select": {"type": "point", "fields": ["type"]},
+              "bind": "legend"
+            }
+          ],
+          "mark": {
+            "type": "arc",
+            "innerRadius": 90,
+            "stroke": "black",
+            "cursor": "pointer"
+          },
+          "encoding": {
+            "theta": {"field": "count", "type": "quantitative"},
+            "color": {
+              "field": "type",
+              "type": "nominal",
+              "title": "House Type",
+              "legend": {
+                "orient": "bottom",
+                "direction": "vertical",
+                "values": ["House", "Townhouse", "Unit"]
+              }
+            },
+            "strokeWidth": {
+              "condition": [{"param": "type_select", "empty": false, "value": 2}]
+            },
+            "opacity": {
+              "condition": [{"param": "type_select", "value": 1}],
+              "value": 0.3
+            },
+            "tooltip": [
+              {"field": "type", "type": "nominal", "title": "House type"},
+              {"field": "count", "type": "quantitative", "format": ",", "title": "Count"},
+              {
+                "field": "total_ratio",
+                "type": "quantitative",
+                "format": ".1%",
+                "title": "% of total"
+              }
+            ]
+          }
+        },
+        {
+          "data": {"url": "data/HouseTypeDist.csv"},
+          "mark": {
+            "type": "text",
+            "align": "center", 
+            "baseline": "middle",
+            "fontSize": 14
+          },
+          "encoding": {
+            "text": {
+              "value": "Selling by house type"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "layer": [
+        {
+          "data": {"url": "data/regionNameDist.csv"},
+          "width": "container",
+          "height": 270,
+          "params": [
+            {
+              "name": "regionname_select",
+              "select": {"type": "point", "fields": ["Regionname"]},
+              "bind": "legend"
+            }
+          ],
+          "mark": {
+            "type": "arc",
+            "innerRadius": 90,
+            "stroke": "black",
+            "cursor": "pointer"
+          },
+          "encoding": {
+            "theta": {"field": "Count", "type": "quantitative"},
+            "color": {
+              "field": "Regionname",
+              "type": "nominal",
+              "title": "Region Name",
+              "legend": {
+                "orient": "bottom",
+                "direction": "vertical",
+                "values": [
+                  "Eastern Metropolitan",
+                  "Eastern Victoria",
+                  "Northern Metropolitan",
+                  "Northern Victoria",
+                  "Western Metropolitan",
+                  "Southern Metropolitan",
+                  "South-Eastern Metropolitan",
+                  "Western Victoria"
+                ]
+              }
+            },
+            "strokeWidth": {
+              "condition": [{"param": "regionname_select", "empty": false, "value": 2}]
+            },
+            "opacity": {
+              "condition": [{"param": "regionname_select", "value": 1}],
+              "value": 0.3
+            },
+            "tooltip": [
+              {"field": "Regionname", "type": "nominal", "title": "Region Name"},
+              {"field": "Count", "type": "quantitative", "format": ",", "title": "Count"},
+              {
+                "field": "ratio_of_total",
+                "type": "quantitative",
+                "format": ".1%",
+                "title": "% of total"
+              }
+            ]
+          }
+        },
+        {
+          "data": {"url": "data/regionNameDist.csv"},
+          "mark": {
+            "type": "text",
+            "align": "center", 
+            "baseline": "middle",
+            "fontSize": 14
+          },
+          "encoding": {
+            "text": {
+              "value": "Selling by region"
             }
           }
         }
