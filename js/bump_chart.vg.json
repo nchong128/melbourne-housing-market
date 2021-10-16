@@ -5,6 +5,20 @@
   "width": "container",
   "height": 600,
   "background": "#f7f8f9",
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    },
+    "legend": {
+      "titleFont": "Museo-Sans",
+      "labelFont": "Museo-Sans",
+      "labelFontWeight": 100,
+      "labelFontSize": 14,
+      "titleFontSize": 16
+    }
+  },
   "layer": [
     {
       "mark": {"type": "line", "point": true, "cursor": "pointer"},

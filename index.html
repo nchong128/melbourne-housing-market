@@ -21,10 +21,13 @@
 <body class="body-bg">
   <div class="container bg-white w-75 border px-0">
     <!-- Heading -->
-    <div class="row jumbotron mx-0 p-5 text-white bg-dark">
-      <div class="col px-0">
-        <h1 class="display-6" style="font-weight: 500;">Looking for a Home?</h1>
+    <div class="row jumbotron mx-0 p-5 text-white bg-dark align-items-center">
+      <div class="col-8 px-0">
+        <h1 class="display-6" style="font-weight: 700;">Looking for a Home?</h1>
         <p class="lead my-3" style="font-weight: 100;">Explore and learn interesting insights about the Melbourne housing market (2016-2018)</p>
+      </div>
+      <div class="col-4 justify-content-end">
+        <img src="/assets/undraw_House_searching_re_stk8(2).svg" style="width:250px;" class="img-fluid" alt="House">
       </div>
     </div>
 
@@ -34,7 +37,7 @@
         <h2>Living Lavish</h2>
         <div class="border mx-auto w-50 border-danger"></div>
       </div>
-      <p class="lead mt-4 mb-1">We analysed over 35000 sales all over Victoria with properties selling for as high as $11M AUD! Explore how the price varies across different suburbs in this interactive map below. Try typing in your suburb and see what happens!</p>
+      <p class="lead mt-4 mb-1">We analysed over <strong>35000 sales</strong> all over Victoria with properties selling for as high as <strong>$11M AUD</strong>! Explore how the price varies across different suburbs in this interactive map below. Try typing in your suburb and see what happens!</p>
       <p class="lead">Can you figure out what causes the difference in the average price between suburbs?</p>
       <input style="width: 30%" class="mt-4 d-block form-control" type="text" autocomplete="off" placeholder="Enter suburb" id="suburb_input">
       <div id="main_choropleth_map" class="mt-2 vis-container"></div>
@@ -59,11 +62,6 @@
       <p class="lead mt-4 mb-1">Property transactions come in different shapes and sizes. Find out how selling varies across different factors.</p>
       <div id="donut_chart" class="mt-2 vis-container"></div>
     </div>
-
-    <!-- <div class="row px-4 py-3 mx-auto text-center justify-content-center align-items-center">
-      <h2>SOLD!</h2>
-      <div id="mult_line_chart" class="vis-container"></div>
-    </div> -->
 
     <!-- Interactive dot map -->
     <div class="row px-4 py-4 mx-auto text-center justify-content-center align-items-center dark-section">
@@ -167,11 +165,6 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   
-  // var mult_line_chart = "js/mult_line_chart.vg.json";
-  // vegaEmbed('#mult_line_chart', mult_line_chart).then(function(result) {
-  //   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  // }).catch(console.error);
-    
   var main_choropleth_map = "js/main_choropleth_map.vg.json";
   vegaEmbed('#main_choropleth_map', main_choropleth_map).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view

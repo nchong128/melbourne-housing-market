@@ -6,6 +6,20 @@
     "projection": {
       "type": "mercator"
     },
+    "config": {
+      "style": {
+        "cell": {
+          "stroke": "transparent"
+        }
+      },
+      "legend": {
+        "titleFont": "Museo-Sans",
+        "labelFont": "Museo-Sans",
+        "labelFontWeight": 100,
+        "labelFontSize": 12,
+        "titleFontSize": 12
+      }
+    },
     "params": [
         {
           "name": "suburb_selection",
@@ -98,6 +112,9 @@
             "title": "Distance from CBD (km)",
             "scale": {
               "scheme": "inferno", "reverse": false
+            },
+            "legend": {
+              "orient": "right"
             }
           },
           "longitude": { "field": "Longtitude", "type": "quantitative" },
@@ -106,7 +123,7 @@
             {"field": "Address", "type": "nominal", "title": "Address"},
             {"field": "Suburb", "type": "nominal", "title": "Suburb"},
             {"field": "Price", "type": "quantitative", "title": "Price", "format": "$,.0f"},
-            {"field": "Distance", "type": "quantitative", "title": "Distance from CBD (km)"},
+            {"field": "Distance", "type": "quantitative", "title": "Dist. from CBD (km)"},
             {"field": "Rooms", "type": "ordinal", "title": "Rooms"},
             {"field": "Bathroom", "type": "nominal", "title": "Bathrooms"},
             {"field": "Car", "type": "nominal", "title": "Car spots"},

@@ -6,6 +6,20 @@
       "type": "mercator",
       "center": [145, -37.95]
     },
+    "config": {
+      "style": {
+        "cell": {
+          "stroke": "transparent"
+        }
+      },
+      "legend": {
+        "titleFont": "Museo-Sans",
+        "labelFont": "Museo-Sans",
+        "labelFontWeight": 100,
+        "labelFontSize": 14,
+        "titleFontSize": 16
+      }
+    },
     "params": [
       {
         "name": "suburb_selection",

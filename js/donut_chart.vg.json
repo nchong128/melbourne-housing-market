@@ -6,6 +6,20 @@
       "color": "independent"
     }
   },
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    },
+    "legend": {
+      "titleFont": "Museo-Sans",
+      "labelFont": "Museo-Sans",
+      "labelFontWeight": 100,
+      "labelFontSize": 14,
+      "titleFontSize": 16
+    }
+  },
   "hconcat": [
     {
       "layer": [
