@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
-    "height": 672,
+    "height": 600,
     "background": "#f7f8f9",
     "projection": {
       "type": "mercator"
@@ -123,7 +123,7 @@
             {"field": "Address", "type": "nominal", "title": "Address"},
             {"field": "Suburb", "type": "nominal", "title": "Suburb"},
             {"field": "Price", "type": "quantitative", "title": "Price", "format": "$,.0f"},
-            {"field": "Distance", "type": "quantitative", "title": "Dist. from CBD (km)"},
+            {"field": "Distance", "type": "quantitative", "title": "Distance from CBD (km)"},
             {"field": "Rooms", "type": "ordinal", "title": "Rooms"},
             {"field": "Bathroom", "type": "nominal", "title": "Bathrooms"},
             {"field": "Car", "type": "nominal", "title": "Car spots"},
