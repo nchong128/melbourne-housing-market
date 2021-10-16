@@ -1,6 +1,5 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Play the Agent",
     "width": 800,
     "height": 600,
     "projection": {
@@ -10,77 +9,57 @@
         {
           "name": "suburb_selection",
           "bind": {
-            "name": "Suburb: ",
-            "input": "text"
+            "element": "#dm_suburb_input",
+            "debounce": 1000
           }
         },
         {
           "name": "address_selection",
           "bind": {
-            "name": "Address: ",
-            "input": "text"
+            "element": "#dm_address_input",
+            "debounce": 1000
           }
         },
         {
-          "name": "type_selection",
+          "name": "min_price_selection",
           "bind": {
-            "name": "House type: ",
-            "input": "radio",
-            "options": [
-              "House",
-              "Unit",
-              "Townhouse"
-            ]
+            "element": "#min_price",
+            "debounce": 1000
           }
         },
         {
-          "name": "price_selection",
+          "name": "max_price_selection",
           "bind": {
-            "name": "Minimum price: ",
-            "input": "range",
-            "max": 11200000,
-            "min": 80000,
-            "step": 10000
+            "element": "#max_price",
+            "debounce": 1000
           }
         },
         {
           "name": "rooms_selection",
           "bind": {
-            "name": "Minimum number of rooms: ",
-            "input": "range",
-            "max": 12,
-            "min": 1,
-            "step": 1
+            "element": "#min_rooms",
+            "debounce": 0
           }
         },
         {
           "name": "bathroom_selection",
           "bind": {
-            "name": "Minimum bathrooms: ",
-            "input": "range",
-            "max": 9,
-            "min": 0,
-            "step": 1
+            "element": "#min_bathrooms",
+            "debounce": 0
           }
         },
         {
           "name": "car_selection",
           "bind": {
-            "name": "Minimum car spots: ",
-            "input": "range",
-            "max": 18,
-            "min": 0,
-            "step": 1
+            "element": "#min_carspots",
+            "debounce": 0
           }
         },
         {
           "name": "landsize_selection",
           "bind": {
-            "name": "Minimum land size: ",
-            "input": "range",
-            "max": 440000,
-            "min": 0,
-            "step": 10000
+            "element": "#min_landsize",
+            "debounce": 0
           }
         }
     ],
@@ -105,18 +84,33 @@
         },
         "transform": [
           {
-            "filter": "datum.Rooms >= rooms_selection"
+            "filter": "(suburb_selection == '' || lower(datum.Suburb) == lower(suburb_selection)) && (address_selection == '' || lower(datum.Address) == lower(address_selection)) && datum.Price > toNumber(min_price_selection) && datum.Price <= toNumber(max_price_selection) && datum.Rooms >= toNumber(rooms_selection) && datum.Bathroom >= toNumber(bathroom_selection) && datum.Car >= toNumber(car_selection) && datum.Landsize >= toNumber(landsize_selection)"
           }
         ],
         "mark": {
-          "type": "circle",
-          "tooltip": {
-            "content": "data"
-          }
+          "type": "circle"
         },
         "encoding": {
+          "color": {
+            "field": "Distance",
+            "type": "quantitative",
+            "title": "Distance from CBD (km)",
+            "scale": {
+              "scheme": "inferno", "reverse": false
+            }
+          },
           "longitude": { "field": "Longtitude", "type": "quantitative" },
-          "latitude": { "field": "Lattitude", "type": "quantitative" }
+          "latitude": { "field": "Lattitude", "type": "quantitative" },
+          "tooltip": [
+            {"field": "Address", "type": "nominal", "title": "Address"},
+            {"field": "Suburb", "type": "nominal", "title": "Suburb"},
+            {"field": "Price", "type": "quantitative", "title": "Price", "format": "$,.0f"},
+            {"field": "Distance", "type": "quantitative", "title": "Distance from CBD (km)"},
+            {"field": "Rooms", "type": "ordinal", "title": "Rooms"},
+            {"field": "Bathroom", "type": "nominal", "title": "Bathrooms"},
+            {"field": "Car", "type": "nominal", "title": "Car spots"},
+            {"field": "Landsize", "type": "nominal", "title": "Landsize (m2)"}
+          ]
         }
       }
     ]
