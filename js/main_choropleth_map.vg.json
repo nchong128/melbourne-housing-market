@@ -11,7 +11,7 @@
         "name": "suburb_selection",
         "bind": {
           "element": "#suburb_input",
-          "debounce": 0
+          "debounce": 1000
         }
       }
     ],
@@ -57,7 +57,7 @@
             "as": "Rooms per property size"
           },
           {
-            "filter": "suburb_selection == '' || datum.Suburb == suburb_selection"
+            "filter": "suburb_selection == '' || lower(datum.Suburb) == lower(suburb_selection)"
           }
         ],
         "mark": {
