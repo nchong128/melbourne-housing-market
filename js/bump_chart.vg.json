@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Bump chart: ranking of top 10 suburbs in terms of number of popularity across 3 different years",
   "data": {"url": "data/countsBySuburb.csv"},
-  "width": 500,
-  "height": 350,
+  "width": "container",
+  "height": 600,
   "layer": [
     {
       "mark": {"type": "line", "point": true, "cursor": "pointer"},
