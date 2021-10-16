@@ -4,6 +4,7 @@
   "data": {"url": "data/countsBySuburb.csv"},
   "width": "container",
   "height": 600,
+  "background": "#f7f8f9",
   "layer": [
     {
       "mark": {"type": "line", "point": true, "cursor": "pointer"},

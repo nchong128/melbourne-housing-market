@@ -28,3 +28,15 @@
 body {
     font-family: 'Museo-Sans', sans-serif !important;
 }
+
+.jumbotron {
+    background-color: #e21e2d !important;
+}
+
+.dark-section {
+    background-color: #f7f8f9 !important;
+}
+
+.body-bg {
+    background-color: #ededf0 !important;
+}
