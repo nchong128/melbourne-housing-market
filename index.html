@@ -17,67 +17,77 @@
   <title>Melbourne Martini</title>
 </head>
 <body>
-  <div class="container">
-    <div class="jumbotron mb-5 p-5 text-white rounded bg-dark">
-      <div class="col-md-12 px-0">
+  <div class="container w-75">
+    <div class="row jumbotron mb-5 p-5 text-white rounded bg-dark">
+      <div class="col px-0">
         <h1 class="display-6 font-italic">Looking for a Home?</h1>
         <p class="lead my-3">Explore and learn interesting insights about the Melbourne housing market (2016-2018)</p>
       </div>
     </div>
 
-    <div class="mx-auto px-3 py-3 text-center d-flex flex-column justify-content-center align-items-center" style="width:600px;">
+    <div class="row mx-auto text-center justify-content-center align-items-center">
       <h2>Living Lavish</h2>
-      <input type="text" autocomplete="off" placeholder="Enter suburb" id="suburb_input">
-      <div style="width:100%" id="main_choropleth_map" class="vis-container pl-3"></div>
+      <input style="width: 30%" type="text" autocomplete="off" placeholder="Enter suburb" id="suburb_input">
+      <div id="main_choropleth_map" class="w-100 vis-container"></div>
     </div>
 
-    <div id="bump_chart" class="vis-container"></div>
-    <br>
-    <div id="bar_chart" class="vis-container"></div>
-    <br>
-    <div id="donut_chart" class="vis-container"></div>
-    <br>
-    <div id="mult_line_chart" class="vis-container"></div>
-    <br>
-    <div id="dot_map" class="vis-container"></div>
-    <div class="control_panel">
-      <div>
-        <p>Suburb:</p>
-        <input type="text" autocomplete="off" placeholder="Enter suburb" id="dm_suburb_input">
-        <p>Address:</p>
-        <input type="text" autocomplete="off" placeholder="Enter address" id="dm_address_input">
-      </div>
-      <br>
-      <div>
-        <p>Min price:</p>
-        <input type="text" autocomplete="off" placeholder="Enter price" id="min_price" value="0">
-        <p>Max price:</p>
-        <input type="text" autocomplete="off" placeholder="Enter price" id="max_price" value="5000000">
-      </div>
-      <br>
-      <div>
-        <p>Min rooms:</p>
-        <input autocomplete="off" class="form-range" type="range" id="min_rooms" min="0" max="8" step="1" value="3" oninput="this.nextElementSibling.value = this.value">
-        <output>3</output>
-      </div>
-      <div>
-        <p>Min bathrooms:</p>
-        <input autocomplete="off" class="form-range" type="range" id="min_bathrooms" min="0" max="6" step="1" value="2" oninput="this.nextElementSibling.value = this.value">
-        <output>2</output>
-      </div>
-      <div>
-        <p>Min car spots:</p>
-        <input autocomplete="off" class="form-range" type="range" id="min_carspots" min="0" max="10" step="1" value="1" oninput="this.nextElementSibling.value = this.value">
-        <output>1</output>
-      </div>
-      <div>
-        <p>Min landsize:</p>
-        <input autocomplete="off" class="form-range" type="range" id="min_landsize" min="0" max="2000" step="100" value="100" oninput="this.nextElementSibling.value = this.value">
-        <output>100</output>
-      </div>
+    <div class="row mx-auto text-center justify-content-center align-items-center">
+      <h2>New Kids on the Block</h2>
+      <div id="bump_chart" class="vis-container"></div>
     </div>
 
-</div>
+    <div class="row mx-auto text-center justify-content-center align-items-center">
+      <h2>Going once... going twice...</h2>
+      <div id="donut_chart" class="vis-container"></div>
+    </div>
+
+    <!-- <div class="row mx-auto text-center justify-content-center align-items-center">
+      <h2>SOLD!</h2>
+      <div id="mult_line_chart" class="vis-container"></div>
+    </div> -->
+
+    <div class="row mx-auto text-center justify-content-center align-items-center">
+      <h2 class="col-12">Playing the Agent</h2>
+      <div class="control_panel col-2">
+        <div>
+          <label for="dm_suburb_input" class="form-label">Suburb:</label>
+          <input type="text" class="form-control" autocomplete="off" placeholder="Enter suburb" id="dm_suburb_input">
+          <label for="dm_address_input" class="form-label">Address:</label>
+          <input type="text" class="form-control" autocomplete="off" placeholder="Enter address" id="dm_address_input">
+        </div>
+        <br>
+        <div>
+          <label for="min_price" class="form-label">Min price:</label>
+          <input type="text" autocomplete="off" class="form-control" placeholder="Enter price" id="min_price" value="0">
+          <label for="max_price" class="form-label">Max price:</label>
+          <input type="text" autocomplete="off" class="form-control" placeholder="Enter price" id="max_price" value="5000000">
+        </div>
+        <br>
+        <div>
+          <label for="min_rooms" class="form-label">Min rooms:</label>
+          <input autocomplete="off" class="form-range" type="range" id="min_rooms" min="0" max="8" step="1" value="3" oninput="this.nextElementSibling.value = this.value">
+          <output>3</output>
+        </div>
+        <div>
+          <label for="min_bathrooms" class="form-label">Min bathrooms:</label>
+          <input autocomplete="off" class="form-range" type="range" id="min_bathrooms" min="0" max="6" step="1" value="2" oninput="this.nextElementSibling.value = this.value">
+          <output>2</output>
+        </div>
+        <div>
+          <label for="min_carspots" class="form-label">Min car spots:</label>
+          <input autocomplete="off" class="form-range" type="range" id="min_carspots" min="0" max="10" step="1" value="1" oninput="this.nextElementSibling.value = this.value">
+          <output>1</output>
+        </div>
+        <div>
+          <label for="min_landsize" class="form-label">Min landsize:</label>
+          <input autocomplete="off" class="form-range" type="range" id="min_landsize" min="0" max="2000" step="100" value="100" oninput="this.nextElementSibling.value = this.value">
+          <output>100</output>
+        </div>
+      </div>
+      <div id="dot_map" class="col-10 vis-container"></div>
+    </div>
+
+  </div>
 
 <script type="text/javascript">
   
@@ -91,10 +101,10 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   
-  var mult_line_chart = "js/mult_line_chart.vg.json";
-  vegaEmbed('#mult_line_chart', mult_line_chart).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
+  // var mult_line_chart = "js/mult_line_chart.vg.json";
+  // vegaEmbed('#mult_line_chart', mult_line_chart).then(function(result) {
+  //   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  // }).catch(console.error);
     
   var main_choropleth_map = "js/main_choropleth_map.vg.json";
   vegaEmbed('#main_choropleth_map', main_choropleth_map).then(function(result) {
