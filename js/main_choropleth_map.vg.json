@@ -67,6 +67,7 @@
           "color": {
             "field": "Price",
             "type": "quantitative",
+            "title": "House Price",
             "scale": {
               "scheme": "inferno", "reverse": true
             }
