@@ -35,8 +35,7 @@
         <h2>Living Lavish</h2>
         <div class="border mx-auto w-50 border-danger"></div>
       </div>
-      <p class="lead mt-4 mb-1">We analysed over <strong>35000 sales</strong> all over Victoria with properties selling for as high as <strong>$11M AUD</strong>! Explore how the price varies across different suburbs in this interactive map below. Try typing in your suburb and see what happens!</p>
-      <p class="lead">Can you figure out what causes the difference in the average price between suburbs?</p>
+      <p class="lead mt-4 mb-1">We analysed over <strong>35000 sales</strong> all over Victoria with properties selling for as high as <strong>$11M AUD</strong>! Notice how the price increases as the suburbs move further away from the CBD.<br> Try typing in your suburb and see what happens!</p>      
       <input style="width: 30%" class="mt-4 d-block form-control" type="text" autocomplete="off" placeholder="Enter suburb" id="suburb_input">
       <div id="main_choropleth_map" class="mt-2 vis-container"></div>
     </div>
@@ -47,7 +46,7 @@
         <h2>New Kids on the Block</h2>
         <div class="border mx-auto w-50 border-danger"></div>
       </div>
-      <p class="lead mt-4 mb-1">We ranked every suburb by their popularity, that is, how many properties were sold in that suburb each year and ranked them accordingly. Inspect how the ranking changes over the 3 years.</p>
+      <p class="lead mt-4 mb-1">We ranked every suburb by their popularity, that is, how many properties were sold in that suburb each year and ranked them accordingly. Significant changes were made between 2017 to 2018.</p>
       <div id="bump_chart" class="mt-2 vis-container"></div>
     </div>
 
@@ -57,7 +56,7 @@
         <h2>Going once... going twice...</h2>
         <div class="border mx-auto w-50 border-danger"></div>
       </div>
-      <p class="lead mt-4 mb-1">Property transactions come in different shapes and sizes. Find out how selling varies across different factors.</p>
+      <p class="lead mt-4 mb-1">Property transactions come in different shapes and sizes. Find out how selling varies across different factors.<br>A typical property sold would be a house selling by conventional means (offers).</p>
       <div id="donut_chart" class="mt-2 vis-container"></div>
     </div>
 
@@ -178,9 +177,15 @@
 <link rel="stylesheet" type="text/css" href="./css/styles.css" media="all">
 <script>
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-    return new bootstrap.Popover(popoverTriggerEl, { trigger: 'focus' })
-  });
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl, { trigger: 'focus' })
+});
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
 </script>
 </body>
 </html>

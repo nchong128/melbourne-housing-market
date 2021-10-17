@@ -78,7 +78,6 @@
             "tooltip": [
               {"field": "Name", "type": "nominal", "title": "Method type"},
               {"field": "Count", "type": "quantitative", "format": ","},
-              {"field": "Description", "type": "ordinal"},
               {
                 "field": "ratio_of_total",
                 "type": "quantitative",
