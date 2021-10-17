@@ -18,6 +18,10 @@
       "labelFontWeight": 100,
       "labelFontSize": 14,
       "titleFontSize": 16
+    },
+    "text": {
+      "font": "Museo-Sans",
+      "fontSize": 15
     }
   },
   "hconcat": [

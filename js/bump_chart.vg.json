@@ -5,6 +5,7 @@
   "width": "container",
   "height": 600,
   "background": "#f7f8f9",
+  "title": "Top 10 suburbs by number of sales (2016-2018)",
   "config": {
     "style": {
       "cell": {
@@ -17,6 +18,15 @@
       "labelFontWeight": 100,
       "labelFontSize": 14,
       "titleFontSize": 16
+    },
+    "title": {
+      "font": "Museo-Sans",
+      "anchor":"start",
+      "dx": 100
+    },
+    "mark": {
+      "font": "Museo-Sans",
+      "fontSize": 14
     }
   },
   "layer": [
@@ -55,11 +65,11 @@
           "condition": [
             {
               "param": "suburb_select",
-              "value": 5,
+              "value": 8,
               "empty": false
             }
           ],
-          "value": 3.5
+          "value": 6
         },  
         "tooltip": [
           {"field": "Suburb", "type": "nominal"},
@@ -100,7 +110,7 @@
         "type": "text", 
         "align": "left", 
         "baseline": "middle",
-        "dy": -9
+        "dy": -12
         },
       "encoding": {
         "opacity": {
@@ -136,7 +146,7 @@
         "type": "text", 
         "align": "center", 
         "baseline": "middle",
-        "dy": 10,
+        "dy": 12,
         "dx": 100
         },
       "encoding": {

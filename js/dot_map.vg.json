@@ -6,6 +6,7 @@
     "projection": {
       "type": "mercator"
     },
+    "title": "Dot map of over 11000 properties across Victoria",
     "config": {
       "style": {
         "cell": {
@@ -18,6 +19,10 @@
         "labelFontWeight": 100,
         "labelFontSize": 12,
         "titleFontSize": 12
+      },
+      "title": {
+        "font": "Museo-Sans",
+        "anchor":"start"
       }
     },
     "params": [

@@ -6,6 +6,7 @@
       "type": "mercator",
       "center": [145, -37.95]
     },
+    "title": "Average property prices varying suburb to suburb",
     "config": {
       "style": {
         "cell": {
@@ -18,6 +19,11 @@
         "labelFontWeight": 100,
         "labelFontSize": 14,
         "titleFontSize": 16
+      },
+      "title": {
+        "font": "Museo-Sans",
+        "anchor":"start",
+        "dx": 100
       }
     },
     "params": [
