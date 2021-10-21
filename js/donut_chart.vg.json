@@ -22,6 +22,10 @@
     "text": {
       "font": "Museo-Sans",
       "fontSize": 15
+    },
+    "mark": {
+      "font": "Museo-Sans",
+      "fontSize": 15
     }
   },
   "hconcat": [
